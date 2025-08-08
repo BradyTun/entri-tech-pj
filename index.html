@@ -192,12 +192,61 @@
     <section class="py-16 px-6 max-w-3xl mx-auto">
         <h2 class="text-2xl md:text-3xl font-bold sage-text mb-4 text-center">Try the PowerFit Simulator</h2>
         <div class="bg-white rounded-3xl shadow-xl border-4 sage-border p-8 flex flex-col items-center gap-6">
+            <!-- Vertical Zig Zag Diagram: Bike -> Dynamo -> Battery -> Inverter -> Power Sockets -->
+            <div class="w-full flex flex-col items-center mb-8">
+                <div class="flex flex-col items-center gap-0 relative">
+                    <!-- Bike -->
+                    <div class="flex flex-col items-center z-10">
+                        <div class="bg-[#A3B18A] rounded-full p-4 shadow-lg">
+                            <i class="fa-solid fa-bicycle text-3xl text-white"></i>
+                        </div>
+                        <span class="mt-2 font-semibold sage-text">Bike</span>
+                    </div>
+                    <!-- Arrow Down -->
+                    <i class="fa-solid fa-arrow-down text-2xl text-[#588157] my-2"></i>
+                    <!-- Dynamo -->
+                    <div class="flex flex-col items-center z-10">
+                        <div class="bg-[#588157] rounded-full p-4 shadow-lg">
+                            <i class="fa-solid fa-bolt text-3xl text-white"></i>
+                        </div>
+                        <span class="mt-2 font-semibold sage-text">Dynamo</span>
+                    </div>
+                    <!-- Arrow Down -->
+                    <i class="fa-solid fa-arrow-down text-2xl text-[#A3B18A] my-2"></i>
+                    <!-- Battery -->
+                    <div class="flex flex-col items-center z-10">
+                        <div class="bg-[#3A5A40] rounded-full p-4 shadow-lg">
+                            <i class="fa-solid fa-battery-full text-3xl text-white"></i>
+                        </div>
+                        <span class="mt-2 font-semibold sage-text">Battery</span>
+                    </div>
+                    <!-- Arrow Down -->
+                    <i class="fa-solid fa-arrow-down text-2xl text-[#588157] my-2"></i>
+                    <!-- Inverter -->
+                    <div class="flex flex-col items-center z-10">
+                        <div class="bg-[#A3B18A] rounded-full p-4 shadow-lg">
+                            <i class="fa-solid fa-plug text-3xl text-white"></i>
+                        </div>
+                        <span class="mt-2 font-semibold sage-text">Inverter</span>
+                    </div>
+                    <!-- Arrow Down -->
+                    <i class="fa-solid fa-arrow-down text-2xl text-[#3A5A40] my-2"></i>
+                    <!-- Power Sockets -->
+                    <div class="flex flex-col items-center z-10">
+                        <div class="bg-[#588157] rounded-full p-4 shadow-lg">
+                            <i class="fa-solid fa-plug text-3xl text-white"></i>
+                        </div>
+                        <span class="mt-2 font-semibold sage-text">Power Sockets</span>
+                    </div>
+                </div>
+                </div>  
             <div class="flex items-center gap-4">
                 <!-- Font Awesome Bike Icon -->
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
                 <i class="fa-solid fa-bicycle text-4xl text-[#588157]"></i>
                 <span class="text-lg font-semibold sage-text">Pedal to generate energy!</span>
             </div>
+
             <div class="w-full max-w-xs">
                 <label for="pedalRange" class="block text-gray-700 font-medium mb-2">Pedal Speed (RPM): <span id="rpmValue" class="font-bold text-[#3A5A40]">0</span></label>
                 <input id="pedalRange" type="range" min="0" max="120" value="0" class="w-full accent-[#588157]">
@@ -226,9 +275,9 @@
                     <div id="batteryBar" class="h-4 rounded-full sage-bg transition-all duration-300" style="width:0%"></div>
                 </div>
             </div>
-            <button id="chargeBtn" class="sage-btn px-6 py-2 rounded-full font-semibold mt-6 shadow transition disabled:opacity-50" disabled>
+            <!-- <button id="chargeBtn" class="sage-btn px-6 py-2 rounded-full font-semibold mt-6 shadow transition disabled:opacity-50" disabled>
                 <i class="fa-solid fa-bolt mr-2"></i>Charge Phone
-            </button>
+            </button> -->
             <div id="chargeMsg" class="text-[#588157] font-medium mt-2"></div>
         </div>
         <script>
