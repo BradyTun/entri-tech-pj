@@ -325,10 +325,10 @@
                     <span id="batteryValue" class="font-bold text-[#3A5A40]">0</span>
                     <span class="text-gray-700">%</span>
                 </div>
-                <div class="flex items-center justify-between mb-2">
+                <!-- <div class="flex items-center justify-between mb-2">
                     <span class="text-gray-700">Phones Charging (Simultaneous)</span>
                     <span id="simulPhonesValue" class="font-bold text-[#588157]">0</span>
-                </div>
+                </div> -->
                 <div class="w-full bg-[#DDE5D1] rounded-full h-4 mt-2">
                     <div id="batteryBar" class="h-4 rounded-full sage-bg transition-all duration-300" style="width:0%">
                     </div>
@@ -337,7 +337,7 @@
             <!-- <button id="chargeBtn" class="sage-btn px-6 py-2 rounded-full font-semibold mt-6 shadow transition disabled:opacity-50" >
                 <i class="fa-solid fa-bolt mr-2"></i>Charge Phone
             </button> -->
-            <div id="chargeMsg" class="text-[#588157] font-medium mt-2"></div>
+            <div id="chargeMsg" class="text-green-600 font-bold font-medium mt-2"></div>
         </div>
         <script>
             // PowerFit Simulator Toy with simultaneous phone count
@@ -349,7 +349,7 @@
             const batteryBar = document.getElementById('batteryBar');
             const chargeBtn = document.getElementById('chargeBtn');
             const chargeMsg = document.getElementById('chargeMsg');
-            const simulPhonesValue = document.getElementById('simulPhonesValue');
+            // const simulPhonesValue = document.getElementById('simulPhonesValue');
 
             // Assume 4 USB-A + 2 USB-C = 6 phones max at once
             const maxSimultaneousPhones = 6;
@@ -375,12 +375,12 @@
                 // Enable charge if battery >= 20%
                 // chargeBtn.disabled = battery < 20;
                 // Calculate simultaneous phones (max 6, 10W per phone)
-                let simulPhones = 0;
-                if (power > 0) {
-                    simulPhones = Math.min(maxSimultaneousPhones, Math.floor(power / 10));
-                }
-                console.log(power)
-                simulPhonesValue.textContent = simulPhones;
+                // let simulPhones = 0;
+                // if (power > 0) {
+                //     simulPhones = Math.min(maxSimultaneousPhones, Math.floor(power / 10));
+                // }
+                // console.log(power)
+                // simulPhonesValue.textContent = simulPhones;
             }
 
             pedalRange.addEventListener('input', () => {
@@ -392,7 +392,7 @@
                     clearInterval(interval);
                     interval = null;
                 }
-                chargeMsg.innerHTML = `Charging ${simulPhones} phone(s) at ${chargeRate}W...`;
+                chargeMsg.innerHTML = `Charging the lithium battery at ${chargeRateValue.textContent}% per min...`;
             });
 
             // chargeBtn.addEventListener('click', () => {
